@@ -34,15 +34,20 @@ router.get("/api/workouts", (req, res) => {
     });
 });
 
-router.put("/api/workouts:id", ({ body }, res) => {
-  Exercise.create(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
-    })
-    .catch(err => {
-      res.status(400).json(err);
-    });
+
+router.put("/api/workouts/:id", ({ body }, res) => {
+  res.sendFile(path.join(__dirname, '../public/api.js'))
+  Exercise.updateOne(body)
+  .then(dbTransaction => {
+    res.json(dbTransaction);
+  })
+  .catch(err => {
+    res.status(400).json(err);
+  });
+
 });
+
+
 
 
 router.get("/exercise", (req, res) => {
@@ -50,7 +55,7 @@ router.get("/exercise", (req, res) => {
   res.sendFile(path.join(__dirname, '../public/exercise.html'))
 
 })
-router.post("/api", (req, res) => {
+router.post("/api/workouts/", (req, res) => {
 
   res.sendFile(path.join(__dirname, '../public/api.js'))
 
