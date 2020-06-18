@@ -14,48 +14,37 @@ default: Date.now
   type: {
     type: String,
     trim: true,
-    required : "enter an exercise"
-  },
-  name: {
+    required: "Enter an exercise type"
+    },
+    name: {
     type: String,
     trim: true,
-    required : "enter a name",
-  },
-  duration: {
-    type: Number,
-    required: "enter a duration"
-},
-  //below is only for populating resistance exercises
-  weight: {
-    type: Number,
-    trim: true,
-    required: "Enter a weight"
-  },
-  reps: {
-    type: Number,
- trim: true,
-    required: "Enter reps"
+    required: "Enter an exercise name"
     },
-  sets: {
+    duration: {
     type: Number,
-    trim: true,
-    required: "Enter sets"
-  },
-  //below is only for populating cardio exercises
-  duration: {
-    type: Number,
-    required: "enter duration",
+    required: "Enter an exercise duration in minutes"
+    },
+    weight: {
+     
+    type: Number
+    },
+    reps: {
+    type: Number
+    },
+    sets: {
+    type: Number
+    },
+    distance: {
+    type: Number
+    }
+    }
+    ]
+    })
     
-  },
-  distance: {
-    type: Number,
-    trim: true,
-    required: "enter distance"
-  }
-}
-]
 
-})
+
+
   
 const Exercise = mongoose.model('Exercise', exerciseSchema)
 
