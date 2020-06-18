@@ -1,59 +1,54 @@
 const mongoose = require('mongoose')
-
 const Schema = mongoose.Schema
-
 const exerciseSchema = new Schema({
+  day: {
+ type: Date,
+default: Date.now
+},
   type: {
     type: String,
-    required: true
+    trim: true,
+    required : "enter an exercise"
   },
   name: {
     type: String,
-    required: true,
-    maxLength: 200,
+    trim: true,
+    required : "enter a name",
   },
   duration: {
     type: Number,
-    required: true,
-    max: 2400,
-    min: [0,'You can not workout for 0 minutes.']
-
-  },
+    required: "enter a duration"
+},
   //below is only for populating resistance exercises
   weight: {
     type: Number,
-    required: true,
-    min: [0,'Why go to the gym if your not going to lift anything?'],
-    max: [2400]
+    trim: true,
+    required: "Enter a weight"
   },
-
   reps: {
     type: Number,
-    required: true,
-    min: [0,'You need to do more than 0 reps'],
-    max: [2400]
-  },
+ trim: true,
+    required: "Enter reps"
+    },
   sets: {
     type: Number,
-    required: true,
-    min: [0,'You need to do more than 0 sets'],
-    max: [2400]
+    trim: true,
+    required: "Enter sets"
   },
   //below is only for populating cardio exercises
   duration: {
     type: Number,
-    required: true,
-    min: [0,'You need to last longer than 0 min'],
-    max: [2400]
+    required: "enter duration",
+    
   },
   distance: {
     type: Number,
-    required: true,
-    min: [0,'You need to go further than 0'],
-    max: [2400]
+    trim: true,
+    required: "enter distance"
   }
-})
 
+})
+  
 const Exercise = mongoose.model('Exercise', exerciseSchema)
 
-module.exports = Exercise
+module.exports = Exercise;
