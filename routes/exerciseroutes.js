@@ -1,83 +1,126 @@
-const router = require("express").Router();
-const Exercise = require("../models/exercisecreate.js");
-const path = require("path");
-const express = require("express");
+const router = require('express').Router();
+const path = require('path');
+const Exercise = require('../models/exercisecreate.js');
 
-const publicDir = path.join(__dirname,  "public");
-router.post("/api/exercise", ({ body }, res) => {
-  Exercise.create(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+router.post('/api/workouts', (req, res) => {
+
+  Exercise.create({})
+
+    .then(dbWorkout => {
+
+      res.json(dbWorkout);
+
     })
+
     .catch(err => {
-      res.status(400).json(err);
+
+      res.json(err);
+
     });
+
 });
 
-router.post("/api/workouts/one", ({ body }, res) => {
-  Exercise.updateOne(body)
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+router.put('/api/workouts/:id', ({ body, params }, res) => {
+
+  Exercise.findByIdAndUpdate(
+
+    params.id,
+
+    { $push: { exercises: body } },
+
+    // "runValidators" will ensure new exercises meet our schema requirements
+
+    { new: true, runValidators: true }
+
+  )
+
+    .then(dbWorkout => {
+
+      res.json(dbWorkout);
+
     })
+
     .catch(err => {
-      res.status(400).json(err);
+
+      res.json(err);
+
     });
+
 });
-router.get("/api/workouts", (req, res) => {
+
+router.get('/api/workouts', (req, res) => {
+
+  Exercise.find()
+
+    .then(dbExercises => {
+
+      res.json(dbExercises);
+
+    })
+
+    .catch(err => {
+
+      res.json(err);
+
+    });
+
+});
+
+router.get('/api/workouts/range', (req, res) => {
+
   Exercise.find({})
-    .sort({ date: -1 })
-    .then(dbTransaction => {
-      res.json(dbTransaction);
+
+    .limit(7)
+
+    .then(dbExercises => {
+
+      console.log(dbExercises);
+
+      res.json(dbExercises);
+
     })
+
     .catch(err => {
-      res.status(400).json(err);
+
+      res.json(err);
+
     });
-});
-
-
-router.put("/api/workouts/:id", ({ body }, res) => {
-  res.sendFile(path.join(__dirname, '../public/api.js'))
-  Exercise.updateOne(body)
-  .then(dbTransaction => {
-    res.json(dbTransaction);
-  })
-  .catch(err => {
-    res.status(400).json(err);
-  });
 
 });
 
+router.delete('/api/workouts', ({ body }, res) => {
 
+  Exercise.findByIdAndDelete(body.id)
 
+    .then(() => {
 
-router.get("/exercise", (req, res) => {
+      res.json(true);
 
-  res.sendFile(path.join(__dirname, '../public/exercise.html'))
+    })
 
-})
-router.post("/api/workouts/", (req, res) => {
+    .catch(err => {
 
-  res.sendFile(path.join(__dirname, '../public/api.js'))
+      res.json(err);
 
-})
+    });
 
-.post((req,res) => {
+});
+/* route for exercise.html */
 
-  db.Exercise.create({}, function(err, doc) {
+router.get('/exercise', (req, res) => {
 
-    if (err) {
+  res.sendFile(path.join(__dirname, '../public/exercise.html'));
 
-      console.log(err);
+});
 
-    } else {
+/* route for stats.html */
 
-      res.json(doc);
+router.get('/stats', (req, res) => {
 
-    }
+  res.sendFile(path.join(__dirname, '../public/stats.html'));
 
-  })
+});
 
-})
 
 
 module.exports = router;
