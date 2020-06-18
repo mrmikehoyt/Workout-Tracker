@@ -5,6 +5,12 @@ const exerciseSchema = new Schema({
  type: Date,
 default: Date.now
 },
+
+  exercises: [
+    //exercises array needed to populate mongoose and create database
+{
+
+
   type: {
     type: String,
     trim: true,
@@ -46,6 +52,8 @@ default: Date.now
     trim: true,
     required: "enter distance"
   }
+}
+]
 
 })
   
