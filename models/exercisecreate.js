@@ -2,15 +2,15 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const exerciseSchema = new Schema({
   day: {
- type: Date,
-default: Date.now
-},
+    type: Date,
+   default: Date.now
+   },
 
   exercises: [
     //exercises array needed to populate mongoose and create database
 {
 
-
+//defining schema
   type: {
     type: String,
     trim: true,
@@ -45,7 +45,7 @@ default: Date.now
 
 
 
-  
+//needed for creating database I think
 const Exercise = mongoose.model('Exercise', exerciseSchema)
 
 module.exports = Exercise;
