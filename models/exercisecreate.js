@@ -38,13 +38,29 @@ const exerciseSchema = new Schema({
     distance: {
     type: Number
     }
-    }
-    ]
-    })
+  }    
+] 
+  },
+  {
+    toObject: {
+    virtuals: true
+    },
     
+      toJSON: {
+      virtuals: true 
+      
+      }
+      
+    }    
+);
+  
+    
+    //})
+    
+    exerciseSchema.virtual("totalDuration").get(function() { 
+      return this.exercises.reduce((total, exercise) => {        return total + exercise.duration;      }, 0);    });
 
-
-
+   
 //needed for creating database I think
 const Exercise = mongoose.model('Exercise', exerciseSchema)
 
