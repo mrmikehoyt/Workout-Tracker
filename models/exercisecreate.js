@@ -41,6 +41,7 @@ const exerciseSchema = new Schema({
   }    
 ] 
   },
+  //needed for virtual field (total duration) to be displayed
   {
     toObject: {
     virtuals: true
@@ -55,7 +56,7 @@ const exerciseSchema = new Schema({
 );
   
     
-    //})
+    //for declaring virtual attribute on schema client
     
     exerciseSchema.virtual("totalDuration").get(function() { 
       return this.exercises.reduce((total, exercise) => {        return total + exercise.duration;      }, 0);    });
