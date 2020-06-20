@@ -42,6 +42,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/exercisetracker
   useCreateIndex: true
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 3000);  {
     console.log(`App is running on port ${PORT}`)
-})
+}
