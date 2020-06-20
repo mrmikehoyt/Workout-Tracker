@@ -35,12 +35,12 @@ var url = process.env.MONGOLAB_URI;
 
 //above for connecting to heroku 
 //needed for connecting to mongoose database and creating document exercisetracker
-//mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/exercisetracker', {
-//  useNewUrlParser: true,
-//  useUnifiedTopology: true,
-//  useFindAndModify: false,
-//  useCreateIndex: true
-//})
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/exercisetracker', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+  useCreateIndex: true
+})
 
 app.listen(PORT, () => {
     console.log(`App is running on port ${PORT}`)
