@@ -1,15 +1,15 @@
 const router = require('express').Router();
 const path = require('path');
-const Exercise = require('../models/exercisecreate.js');
+const Workout = require('../models/workoutschema.js');
 const db = require('../models')
 
 router.post('/api/workouts', (req, res) => {
 
-  Exercise.create({})
+  Workout.create({})
 
-    .then(dbExercises => {
+    .then(dbWorkout => {
 
-      res.json(dbExercises);
+      res.json(dbWorkout);
 
     })
 
@@ -27,7 +27,7 @@ router.put('/api/workouts/:id', ({ body, params }, res) => {
 
     params.id,
 
-    { $push: { exercises: body } },
+    { $push: { workouts: body } },
 
     // "runValidators" will ensure new exercises meet our schema requirements
 
@@ -51,11 +51,11 @@ router.put('/api/workouts/:id', ({ body, params }, res) => {
 
 router.get('/api/workouts', (req, res) => {
 
-  Exercise.find()
+  Workout.find()
 
-    .then(dbExercises => {
+    .then(dbWorkout => {
 
-      res.json(dbExercises);
+      res.json(dbWorkout);
 
     })
 
@@ -73,11 +73,11 @@ router.get('/api/workouts/range', (req, res) => {
 
     .limit(7)
 
-    .then(dbExercises => {
+    .then(dbWorkout => {
 
-      console.log(dbExercises);
+      console.log(dbWorkout);
 
-      res.json(dbExercises);
+      res.json(dbWorkout);
 
     })
 
@@ -91,7 +91,7 @@ router.get('/api/workouts/range', (req, res) => {
 
 router.delete('/api/workouts', ({ body }, res) => {
 
-  Exercise.findByIdAndDelete(body.id)
+Workout.findByIdAndDelete(body.id)
 
     .then(() => {
 
@@ -106,22 +106,7 @@ router.delete('/api/workouts', ({ body }, res) => {
     });
 
 });
-/* route for exercise.html */
 
-router.get('/exercise', (req, res) => {
-
-  res.sendFile(path.join(__dirname, '../public/exercise.html'));
-
-});
-
-/* route for stats.html */
-
-router.get('/stats', (req, res) => {
-
-  res.sendFile(path.join(__dirname, '../public/stats.html'));
-  //const Exercise = mongoose.model('Exercise', exerciseSchema)
-  
-});
 
 
 
