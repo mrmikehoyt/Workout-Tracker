@@ -1,20 +1,21 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const logger = require('morgan')
-const exerciseroutes = require ('./routes/exerciseroutes')
 const PORT = process.env.PORT || 3000;
 const app = express();
 const path = require('path')
-const router = require('express').Router();
-const Exercise = require('./models/exercisecreate');
-const index = require('./models/index');
 
 var mongodb = require('mongodb');
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
-app.use('/', exerciseroutes)
+//app.use('/', exerciseroutes);
+
+app.use(require('./routes/workoutapigetroutes'));
+app.use(require('./routes/workoutapisendroutes'));
+app.use(require('./routes/workouthtmlgetroutes'));
+
 // Static Files
 app.use('/', express.static(path.join(__dirname, '/public')))
 
