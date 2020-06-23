@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const exerciseSchema = new Schema({
+const workoutSchema = new Schema({
     day: {
       type: Date,
       default: Date.now
@@ -86,7 +86,7 @@ const exerciseSchema = new Schema({
 
 //for declaring virtual attribute on schema client
 
-exerciseSchema.virtual("totalDuration").get(function () {
+workoutSchema.virtual("totalDuration").get(function () {
   return this.exercises.reduce((total, exercise) => {
     return total + exercise.duration;
   }, 0);
@@ -95,7 +95,7 @@ exerciseSchema.virtual("totalDuration").get(function () {
 
 
 //needed for creating database I think
-const Exercise = mongoose.model('Exercise', exerciseSchema)
+const Exercise = mongoose.model('Exercise', workoutSchema)
 //const User = mongoose.model("User", UserSchema);
 //for seeding duplicates are created if run multiple times. need to troubleshoot
 
