@@ -16,4 +16,4 @@ router.get('/exercise', (req, res) => {
     //const Exercise = mongoose.model('Exercise', exerciseSchema)
     
   });
-  module.exports = router;
+  module.exports = router
