@@ -1,4 +1,4 @@
-// Exporting an object containing all of our models
+// Exporting Workout(Object) containing all of our models
 
 module.exports = {
     Workout: require("./workoutschema"),
