@@ -33,8 +33,8 @@ const workoutSchema = new Schema({
       type: Number
     },
   
-    exercises: [
-      //exercises array needed to populate mongoose and create database
+    workouts: [
+      //workouts array needed to populate mongoose and create database
       {
 
         //defining schema
@@ -87,8 +87,8 @@ const workoutSchema = new Schema({
 //for declaring virtual attribute on schema client
 
 workoutSchema.virtual("totalDuration").get(function () {
-  return this.exercises.reduce((total, exercise) => {
-    return total + exercise.duration;
+  return this.workouts.reduce((total, workout) => {
+    return total + workout.duration;
   }, 0);
 });
 
