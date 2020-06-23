@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const path = require('path');
-const db = require('../models')
 /* route for exercise.html */
 
 router.get('/exercise', (req, res) => {
