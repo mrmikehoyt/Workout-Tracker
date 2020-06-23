@@ -7,6 +7,8 @@
     "express": "^4.17.1",
     "mongodb": "^3.5.9",
     "mongoose": "^5.9.19",
+    "mongoose-data-seed": "^2.1.6",
+    "mongoose-seeder": "^1.2.1",
     "morgan": "^1.10.0"
   },
   "devDependencies": {},
@@ -24,5 +26,8 @@
   "bugs": {
     "url": "https://github.com/mrmikehoyt/Workout-Tracker/issues"
   },
-  "homepage": "https://github.com/mrmikehoyt/Workout-Tracker#readme"
+  "homepage": "https://github.com/mrmikehoyt/Workout-Tracker#readme",
+  "mdSeed": {
+    "seedersFolder": "./seeders"
+  }
 }

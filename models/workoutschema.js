@@ -98,22 +98,6 @@ exerciseSchema.virtual("totalDuration").get(function () {
 const Exercise = mongoose.model('Exercise', exerciseSchema)
 //const User = mongoose.model("User", UserSchema);
 //for seeding duplicates are created if run multiple times. need to troubleshoot
-var exercises = [{
-  'type': 'resistance',
-  'name': 'dubmess',
-  'duration': 50,
-  'weight': 564,
-  'reps':6,
-  'sets':4,
-  'distance':6
-  }]
-  
-  Exercise.insertMany(exercises, {ordered:false}, function(err, res){
-    exercises.forEach(function(item){
-        //check exist in res using memberNo
-       
-  
-    })
-  });
+
 module.exports = Exercise;
 

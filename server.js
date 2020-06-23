@@ -5,6 +5,10 @@ const exerciseroutes = require ('./routes/exerciseroutes')
 const PORT = process.env.PORT || 3000;
 const app = express();
 const path = require('path')
+const router = require('express').Router();
+const Exercise = require('./models/exercisecreate');
+const index = require('./models/index');
+
 var mongodb = require('mongodb');
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
@@ -23,7 +27,8 @@ MongoClient.connect(url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
-    console.log('Connection established to', url);
+    
+    console.log('Connection established');
 
     // do some work here with the database.
 
@@ -41,6 +46,11 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/exercisetracker
   useFindAndModify: false,
   useCreateIndex: true
 })
+
+
+
+
+
 
 app.listen(process.env.PORT || 3000);  {
     console.log(`App is running on port ${PORT}`)

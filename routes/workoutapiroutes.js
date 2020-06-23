@@ -1,14 +1,15 @@
 const router = require('express').Router();
 const path = require('path');
 const Exercise = require('../models/exercisecreate.js');
+const db = require('../models')
 
 router.post('/api/workouts', (req, res) => {
 
   Exercise.create({})
 
-    .then(dbWorkout => {
+    .then(dbExercises => {
 
-      res.json(dbWorkout);
+      res.json(dbExercises);
 
     })
 
@@ -118,7 +119,8 @@ router.get('/exercise', (req, res) => {
 router.get('/stats', (req, res) => {
 
   res.sendFile(path.join(__dirname, '../public/stats.html'));
-
+  //const Exercise = mongoose.model('Exercise', exerciseSchema)
+  
 });
 
 
