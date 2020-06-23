@@ -32,9 +32,9 @@ const workoutSchema = new Schema({
     distance: {
       type: Number
     },
+      //workouts array needed to populate mongoose and create database
   
     workouts: [
-      //workouts array needed to populate mongoose and create database
       {
 
         //defining schema
@@ -96,8 +96,7 @@ workoutSchema.virtual("totalDuration").get(function () {
 
 //needed for creating database I think
 const Workout = mongoose.model('Workout', workoutSchema)
-//const User = mongoose.model("User", UserSchema);
-//for seeding duplicates are created if run multiple times. need to troubleshoot
+
 
 module.exports = Workout;
 
