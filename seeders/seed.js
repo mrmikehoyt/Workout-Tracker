@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const PORT = process.env.PORT || 3000;
 const app = express();
-const db1 = require('../models')
+const db = require('../models')
 var mongodb = require('mongodb');
 //for connecting to heroku
 var MongoClient = mongodb.MongoClient;
@@ -22,7 +22,7 @@ MongoClient.connect(url, function (err, db) {
 });
 var url = process.env.MONGOLAB_URI;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/exercisetracker', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workouttracker', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
@@ -179,8 +179,8 @@ var exercises2 = [
 
     
     
-    db1.Exercise.deleteMany({}) 
-  .then(() => db1.Exercise.collection.insertMany(exercises2)) 
+    db.Workout.deleteMany({}) 
+  .then(() => db.Workout.collection.insertMany(exercises2)) 
   .then(data => { 
     console.log(data.result.n + " records inserted!"); 
   
