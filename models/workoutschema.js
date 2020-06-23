@@ -8,16 +8,16 @@ const workoutSchema = new Schema({
     type: {
       type: String,
       trim: true,
-      required: "Enter an exercise type"
+      required: "Enter an workout type"
     },
     name: {
       type: String,
       trim: true,
-      required: "Enter an exercise name"
+      required: "Enter an workout name"
     },
     duration: {
       type: Number,
-      required: "Enter an exercise duration in minutes"
+      required: "Enter an workout duration in minutes"
     },
     weight: {
 
@@ -41,16 +41,16 @@ const workoutSchema = new Schema({
         type: {
           type: String,
           trim: true,
-          required: "Enter an exercise type"
+          required: "Enter a workout type"
         },
         name: {
           type: String,
           trim: true,
-          required: "Enter an exercise name"
+          required: "Enter a workout name"
         },
         duration: {
           type: Number,
-          required: "Enter an exercise duration in minutes"
+          required: "Enter a workout duration in minutes"
         },
         weight: {
 
@@ -95,9 +95,9 @@ workoutSchema.virtual("totalDuration").get(function () {
 
 
 //needed for creating database I think
-const Exercise = mongoose.model('Exercise', workoutSchema)
+const Workout = mongoose.model('Workout', workoutSchema)
 //const User = mongoose.model("User", UserSchema);
 //for seeding duplicates are created if run multiple times. need to troubleshoot
 
-module.exports = Exercise;
+module.exports = Workout;
 
