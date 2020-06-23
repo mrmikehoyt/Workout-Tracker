@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const Workout = require('../models/');
+const Models = require('../models/');
 router.get('/api/workouts', (req, res) => {
 
-    Workout.find()
+    Models.Workout.find()
   
       .then(dbWorkout => {
   
@@ -20,7 +20,7 @@ router.get('/api/workouts', (req, res) => {
   
   router.get('/api/workouts/range', (req, res) => {
   
-    Workout.find({})
+    Models.Workout.find({})
   
       .limit(7)
   
