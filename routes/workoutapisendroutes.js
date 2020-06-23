@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const Workout = require('../models/workoutschema.js');
+const Workout = require('../models/');
 
 router.post('/api/workouts', (req, res) => {
 
@@ -47,45 +47,6 @@ router.put('/api/workouts/:id', ({ body, params }, res) => {
 
 });
 
-router.get('/api/workouts', (req, res) => {
-
-  Workout.find()
-
-    .then(dbWorkout => {
-
-      res.json(dbWorkout);
-
-    })
-
-    .catch(err => {
-
-      res.json(err);
-
-    });
-
-});
-
-router.get('/api/workouts/range', (req, res) => {
-
-  Exercise.find({})
-
-    .limit(7)
-
-    .then(dbWorkout => {
-
-      console.log(dbWorkout);
-
-      res.json(dbWorkout);
-
-    })
-
-    .catch(err => {
-
-      res.json(err);
-
-    });
-
-});
 
 router.delete('/api/workouts', ({ body }, res) => {
 
@@ -106,6 +67,6 @@ Workout.findByIdAndDelete(body.id)
 });
 
 
+module.exports = router
 
 
-module.exports = router;
