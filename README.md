@@ -20,7 +20,7 @@
 ![alt_text](https://img.shields.io/badge/Required-nodeJS%20Compiler-red)
 
 
-## Instructions
+
 
 1. Download Visual Studio code from https://code.visualstudio.com/download 
 #
