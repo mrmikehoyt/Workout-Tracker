@@ -1,9 +1,9 @@
 const router = require('express').Router();
-const Models = require('../models/');
+const Models = require('../models/workoutschema');
 
 router.post('/api/workouts', (req, res) => {
 
-  Models.Workout.create({})
+  Models.create({})
 
     .then(dbWorkout => {
 
@@ -21,11 +21,11 @@ router.post('/api/workouts', (req, res) => {
 
 router.put('/api/workouts/:id', ({ body, params }, res) => {
 
-  Models.Workout.findByIdAndUpdate(
+  Models.findByIdAndUpdate(
 
     params.id,
 
-    { $push: { workouts: body } },
+    { $push: { exercises: body } },
 
     // "runValidators" will ensure new exercises meet our schema requirements
 
@@ -50,7 +50,7 @@ router.put('/api/workouts/:id', ({ body, params }, res) => {
 
 router.delete('/api/workouts', ({ body }, res) => {
 
-Models.Workout.findByIdAndDelete(body.id)
+Models.findByIdAndDelete(body.id)
 
     .then(() => {
 
