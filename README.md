@@ -4,7 +4,7 @@
 
 ## This is a simple Workout tracking application where when you can input the types of exercises you do and have the workout tracker track your total time you have spent working out, the last date of your workout, the amount of exercises you performed, and the total distance you covered in all your workouts.
 #
-<a href="https://boiling-tundra-74893.herokuapp.com/"><img border="0" alt="newworkout image" src="readmeimages/newworkout.PNG" width="969" height="686">
+<a href="https://boiling-tundra-74893.herokuapp.com/"><img border="0" alt="newworkout image" src="readmeimages/newworkout.PNG" width="969" height="686"></a>
 
 ## This application uses Routes, Mongoose, MongoDB, nodeJS as well as Heroku
 
