@@ -43,12 +43,12 @@ var exercises2 = [
       exercises : [
         {
         
-        'type': 'resistance',
-    'name': 'Bicep Curl',
-    'duration': 20,
-    'weight': 100,
-    'reps':10,
-    'sets':4,
+     type: 'resistance',
+    name: 'Bicep Curl',
+    duration: 20,
+    weight: 100,
+    reps:10,
+    sets:4,
     //'distance':
 }
 ]
@@ -61,12 +61,12 @@ var exercises2 = [
             {
         
 
-        'type': 'resistance',
-        'name': 'Lateral Pull',
-        'duration': 20,
-        'weight': 300,
-        'reps':10,
-        'sets':4,
+        type: 'resistance',
+        name: 'Lateral Pull',
+        duration: 20,
+        weight: 300,
+        reps:10,
+        sets:4,
         //'distance':
     }
     ]
