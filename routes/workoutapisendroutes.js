@@ -48,24 +48,6 @@ router.put('/api/workouts/:id', ({ body, params }, res) => {
 });
 
 
-router.delete('/api/workouts', ({ body }, res) => {
-
-Models.findByIdAndDelete(body.id)
-
-    .then(() => {
-
-      res.json(true);
-
-    })
-
-    .catch(err => {
-
-      res.json(err);
-
-    });
-
-});
-
 
 module.exports = router
 
