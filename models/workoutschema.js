@@ -5,36 +5,9 @@ const workoutSchema = new Schema({
       type: Date,
       default: Date.now
     },
-    type: {
-      type: String,
-      trim: true,
-      required: "Enter an workout type"
-    },
-    name: {
-      type: String,
-      trim: true,
-      required: "Enter an workout name"
-    },
-    duration: {
-      type: Number,
-      required: "Enter an workout duration in minutes"
-    },
-    weight: {
-
-      type: Number
-    },
-    reps: {
-      type: Number
-    },
-    sets: {
-      type: Number
-    },
-    distance: {
-      type: Number
-    },
       //workouts array needed to populate mongoose and create database
   
-    workouts: [
+    exercises: [
       {
 
         //defining schema
@@ -87,7 +60,7 @@ const workoutSchema = new Schema({
 //for declaring virtual attribute on schema client
 
 workoutSchema.virtual("totalDuration").get(function () {
-  return this.workouts.reduce((total, workout) => {
+  return this.exercises.reduce((total, workout) => {
     return total + workout.duration;
   }, 0);
 });
@@ -95,7 +68,7 @@ workoutSchema.virtual("totalDuration").get(function () {
 
 
 //needed for creating database I think
-const Workout = mongoose.model('Workout', workoutSchema)
+const Workout = mongoose.model('workouttracker', workoutSchema)
 
 
 module.exports = Workout;
