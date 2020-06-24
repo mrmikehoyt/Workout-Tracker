@@ -41,7 +41,7 @@ var url = process.env.MONGOLAB_URI;
 
 //above for connecting to heroku 
 //needed for connecting to mongoose database and creating document exercisetracker
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/exercisetracker', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workouttracker', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
