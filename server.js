@@ -31,7 +31,6 @@ MongoClient.connect(url, function (err, db) {
     
     console.log('Connection established');
 
-    // do some work here with the database.
 
     //Close connection
     db.close();
