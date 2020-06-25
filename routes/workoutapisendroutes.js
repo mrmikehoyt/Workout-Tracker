@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Workout = require('../models/workoutschema');
-
+// helped define routes by looking at .js files (files under public) 
 router.post('/api/workouts', (req, res) => {
 //creating the document 
   Workout.create({})
@@ -27,7 +27,7 @@ router.put('/api/workouts/:id', ({ body, params }, res) => {
 
     { $push: { exercises: body } },
 
-    // "runValidators" will ensure new exercises meet our schema requirements
+    // "runValidators" needed to  ensure new workouts meet schema requirements
 
     { new: true, runValidators: true }
 
