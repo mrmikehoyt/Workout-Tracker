@@ -36,9 +36,9 @@
 #
 7. Under the directory where the workout tracker is run node ./seeders/seed.js to seed mongodb / mongoose
 #
-7. Run node server.js
+8. Run node server.js
 #
-8. Open your web browser and go to localhost:3000
+9. Open your web browser and go to localhost:3000
 
 ## Alternate Instructions
 #
