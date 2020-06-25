@@ -6,7 +6,6 @@ const db = require('../models')
 var mongodb = require('mongodb');
 //for connecting to heroku
 var MongoClient = mongodb.MongoClient;
-//var url = 'mongodb://localhost/exercisetracker';      
 var url = 'mongodb://mike:Cl1barat10@ds143900.mlab.com:43900/heroku_4xgx80gg';
 
 MongoClient.connect(url, function (err, db) {
@@ -36,7 +35,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workouttracker'
 app.listen(process.env.PORT || 3000);  {
     console.log(`App is running on port ${PORT}`)
 }
-
+//data for seeding database
 var exercises2 = [
     {
       day: new Date().setDate(new Date().getDate()-10),
@@ -49,7 +48,7 @@ var exercises2 = [
     weight: 100,
     reps:10,
     sets:4,
-    //'distance':
+
 }
 ]
 },
@@ -67,7 +66,7 @@ var exercises2 = [
         weight: 300,
         reps:10,
         sets:4,
-        //'distance':
+
     }
     ]
     },
@@ -178,7 +177,7 @@ var exercises2 = [
     
 
     
-    
+  //for deleting items from database and populating database  
     db.Workout.deleteMany({}) 
   .then(() => db.Workout.collection.insertMany(exercises2)) 
   .then(data => { 
