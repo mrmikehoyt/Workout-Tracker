@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const Models = require('../models/workoutschema');
+const Workout = require('../models/workoutschema');
 
 router.post('/api/workouts', (req, res) => {
-
-  Models.create({})
-
+//creating the document 
+  Workout.create({})
+//.then method needed to return promise . needed with mongoose
     .then(dbWorkout => {
 
       res.json(dbWorkout);
@@ -20,8 +20,8 @@ router.post('/api/workouts', (req, res) => {
 });
 
 router.put('/api/workouts/:id', ({ body, params }, res) => {
-
-  Models.findByIdAndUpdate(
+//for finding a single document using id field
+  Workout.findByIdAndUpdate(
 
     params.id,
 
