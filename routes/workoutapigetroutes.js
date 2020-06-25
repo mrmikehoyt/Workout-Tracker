@@ -1,8 +1,9 @@
 const router = require('express').Router();
-const Models = require('../models/workoutschema');
+const Workout = require('../models/workoutschema');
+// helped define routes by looking at .js files (files under public) 
 router.get('/api/workouts', (req, res) => {
-
-    Models.find()
+  //for finding documents 
+    Workout.find()
   
       .then(dbWorkout => {
   
@@ -19,10 +20,10 @@ router.get('/api/workouts', (req, res) => {
   });
   
   router.get('/api/workouts/range', (req, res) => {
+    
+    Workout.find({})
   
-    Models.find({})
-  
-      //.limit(7)
+
   
       .then(dbWorkout => {
   
