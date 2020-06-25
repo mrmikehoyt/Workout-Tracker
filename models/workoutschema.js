@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const workoutSchema = new Schema({
+    //for setting the date for each document item created in mongoose 
     day: {
       type: Date,
       default: Date.now
@@ -70,6 +71,6 @@ workoutSchema.virtual("totalDuration").get(function () {
 //needed for creating database I think
 const Workout = mongoose.model('workouttracker', workoutSchema)
 
-
+//exporting workout module
 module.exports = Workout;
 

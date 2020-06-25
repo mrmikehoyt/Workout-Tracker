@@ -2,9 +2,9 @@ const router = require('express').Router();
 const Workout = require('../models/workoutschema');
 // helped define routes by looking at .js files (files under public) 
 router.post('/api/workouts', (req, res) => {
-//creating the document 
+  //creating the document 
   Workout.create({})
-//.then method needed to return promise . needed with mongoose
+    //.then method needed to return promise . needed with mongoose
     .then(dbWorkout => {
 
       res.json(dbWorkout);
@@ -19,19 +19,29 @@ router.post('/api/workouts', (req, res) => {
 
 });
 
-router.put('/api/workouts/:id', ({ body, params }, res) => {
-//for finding a single document using id field
+router.put('/api/workouts/:id', ({
+  body,
+  params
+}, res) => {
+  //for finding a single document using id field
   Workout.findByIdAndUpdate(
 
-    params.id,
+      params.id,
 
-    { $push: { exercises: body } },
+      {
+        $push: {
+          exercises: body
+        }
+      },
 
-    // "runValidators" needed to  ensure new workouts meet schema requirements
+      // "runValidators" needed to  ensure new workouts meet schema requirements
 
-    { new: true, runValidators: true }
+      {
+        new: true,
+        runValidators: true
+      }
 
-  )
+    )
 
     .then(dbWorkout => {
 
@@ -50,5 +60,3 @@ router.put('/api/workouts/:id', ({ body, params }, res) => {
 
 
 module.exports = router
-
-

@@ -7,7 +7,9 @@ const path = require('path')
 
 var mongodb = require('mongodb');
 app.use(logger('dev'));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+  extended: true
+}));
 app.use(express.json());
 app.use(express.static('public'));
 //app.use('/', exerciseroutes);
@@ -28,7 +30,7 @@ MongoClient.connect(url, function (err, db) {
   if (err) {
     console.log('Unable to connect to the mongoDB server. Error:', err);
   } else {
-    
+
     console.log('Connection established');
 
 
@@ -52,6 +54,6 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workouttracker'
 
 
 
-app.listen(process.env.PORT || 3000);  {
-    console.log(`App is running on port ${PORT}`)
+app.listen(process.env.PORT || 3000); {
+  console.log(`App is running on port ${PORT}`)
 }
